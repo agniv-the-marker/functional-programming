@@ -9,6 +9,7 @@ import os
 DIRECTORY = './'
 BASE_URL = 'https://github.com/agniv-the-marker/functional-programming/blob/main'
 PLUGIN_PATH = './.obsidian/plugins/digitalgarden/data.json'
+WEB_URL = 'https://haskell.agniv.me/assets'
 
 if __name__ == "__main__":
     files = glob.glob(DIRECTORY + '/**/[!.]*[!~].*', recursive=True)
@@ -24,11 +25,18 @@ if __name__ == "__main__":
         data["customFilters"] = []
         for file in non_markdown:
             file_name = file.split('/')[-1]
-            data["customFilters"].append({
-                'pattern': "\\[\\[" + file_name + "\\]\\]",
-                'flags': 'g',
-                'replace': f'[{file_name}]({BASE_URL}{file})'
-            })
+            if file_name.endswith('.pdf'):
+                data["customFilters"].append({
+                    'pattern': "\\[\\[" + file_name + "\\]\\]",
+                    'flags': 'g',
+                    'replace': f'[{file_name}]({WEB_URL}/{file_name})'
+                })
+            else:
+                data["customFilters"].append({
+                    'pattern': "\\[\\[" + file_name + "\\]\\]",
+                    'flags': 'g',
+                    'replace': f'[{file_name}]({BASE_URL}{file})'
+                })
     os.remove(PLUGIN_PATH)
     with open(PLUGIN_PATH, 'w', encoding='utf-8') as f:
         json.dump(data, f, indent=4)
