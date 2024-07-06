@@ -17,6 +17,7 @@ if __name__ == "__main__":
         if file.endswith('.md'):
             continue
         file = file.replace('\\', '/')
+        file = file.replace(' ', '%20') # replace spaces with %20
         non_markdown.append(file[1:])
     with open(PLUGIN_PATH, 'r', encoding='utf-8') as f:
         data = json.load(f)
