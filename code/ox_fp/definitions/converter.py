@@ -24,9 +24,9 @@ def convert(n: int) -> str:
     powers_of_10 = ['', 'thousand', 'million']
     if n < 20:
         return endings[n]
-    elif n < 100:
+    if n < 100:
         return tens[n // 10 - 2] if n % 10 == 0 else tens[n // 10 - 2] + ' ' + endings[n % 10]
-    elif n < 1000:
+    if n < 1000:
         if n % 100 == 0:
             return endings[n // 100] + ' hundred'
         return endings[n // 100] + ' hundred ' + convert(n % 100)
