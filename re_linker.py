@@ -29,7 +29,7 @@ if __name__ == "__main__":
                 data["customFilters"].append({
                     'pattern': "\\[\\[" + file_name + "\\]\\]",
                     'flags': 'g',
-                    'replace': f'[{file_name}]({WEB_URL}/{file_name})'
+                    'replace': 'course notes'
                 })
             else:
                 data["customFilters"].append({
