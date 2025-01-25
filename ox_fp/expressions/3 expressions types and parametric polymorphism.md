@@ -12,5 +12,3 @@ table of contents:
 4. [[3.4 polymorphic types]]
 5. [[3.5 selectors, discriminators, deconstructors]]
 6. [[3.6 type inference]]
-
-exercises: [[3 exercises]]

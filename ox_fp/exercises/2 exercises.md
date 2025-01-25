@@ -39,9 +39,7 @@ not4 bool
     | otherwise    = True
 ```
 
-*Problem 3.*
-
-Since a function is a relation and parenthesis are ignored, its 2^^{# of Bools} (tetration). 
+*Problem 3.* 
 
 1. 4
 	- T and F both have 2 options, so its 4.
